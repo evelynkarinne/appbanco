@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Vendas</h1>
+
+    <table>
+        <tr>
+            <th>Código</th>
+            <th>Vendedor</th>
+            <th>Data</th>
+            <th>Valor</th>
+        </tr>
+
+        {% for venda in vendas %}
+        <tr>
+            <td>{{ venda.codigo }}</td>
+            <td>{{ venda.colaborador.nome }}</td>
+            <td>{{ venda.data_venda }}</td>
+            <td>R$ {{ venda.valor }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
