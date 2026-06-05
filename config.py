@@ -8,12 +8,9 @@ class Config:
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    SECRET_KEY = os.getenv(
-        "SECRET_KEY",
-        "chave_padrao"
-    )
+    SECRET_KEY = os.getenv("SECRET_KEY", "chave_padrao")
 
-    DEBUG = os.getenv(
-        "FLASK_DEBUG",
-        "False"
-    ).lower() == "true"
+    DEBUG = False
+
+    if not SQLALCHEMY_DATABASE_URI:
+        raise Exception("DATABASE_URL não encontrada")
